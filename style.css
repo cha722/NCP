@@ -1,58 +1,155 @@
+:root {
+    --primary: #1a5276;
+    --secondary: #117864;
+    --accent: #d4ac0d;
+    --light: #eaf2f8;
+    --dark: #154360;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #eaf2f8 0%, #d6eaf8 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 .login-container {
     background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pharmacy-brand {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 30px 20px;
     text-align: center;
+    position: relative;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.login-form {
+    padding: 30px;
 }
 
 .input-group {
-    margin-bottom: 1rem;
-    text-align: left;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-weight: 500;
 }
 
 input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 14px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
 }
 
 button {
-    background-color: #4CAF50;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     color: white;
-    padding: 0.7rem;
+    padding: 14px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     width: 100%;
-    font-size: 1rem;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .message {
-    margin-top: 1rem;
-    color: #d9534f;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
     height: 20px;
+    color: #e74c3c;
+}
+
+/* Professional decoration elements */
+.pharmacy-brand::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        border-radius: 10px;
+    }
+    
+    .login-form {
+        padding: 25px;
+    }
+    
+    h1 {
+        font-size: 22px;
+    }
+    
+    h2 {
+        font-size: 16px;
+    }
 }
