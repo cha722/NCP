@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacist Portal - NEW CHAAR PHARMACY</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portal-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .pharmacist-name {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .portal-content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: var(--dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-header">
+        <h1>NEW CHAAR PHARMACY</h1>
+        <h2>PHARMACIST PORTAL</h2>
+        <div class="pharmacist-name">Dr. HaniC</div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+    
+    <div class="portal-content">
+        <h3 class="section-title">Manage Patient Medications</h3>
+        <p>Patient selection and medicine forms will be added here...</p>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth('pharmacist');
+            setupLogout();
+        });
+    </script>
+</body>
+</html>
