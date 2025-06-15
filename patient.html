@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Portal - NEW CHAAR PHARMACY</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portal-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .patient-welcome {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        
+        .portal-content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: var(--dark);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-header">
+        <h1>NEW CHAAR PHARMACY</h1>
+        <h2>PATIENT PORTAL</h2>
+        <div class="patient-welcome">Welcome, <span id="patientName">John Doe</span></div>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+    
+    <div class="portal-content">
+        <h3 class="section-title">Your Medication Schedule</h3>
+        <p>Medication list and reminders will be shown here...</p>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth('patient');
+            setupLogout();
+            
+            // Display patient name
+            const patientData = JSON.parse(sessionStorage.getItem('currentPatient') || '{}');
+            if(patientData.fullName) {
+                document.getElementById('patientName').textContent = patientData.fullName;
+            }
+        });
+    </script>
+</body>
+</html>
